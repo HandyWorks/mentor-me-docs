@@ -19,30 +19,30 @@
    source .venv/bin/activate
    python -m pip install -r requirements.txt
    ```
-2. Configure the environment:
+2. Create the environment file:
    ```sh
    cp .env.example .env
    ```
-   Edit `.env` with your database connection URL. **`.env` is private and never
-   committed.**
-3. Apply the schema (idempotent — safe to re-run; it also includes the
-   incremental column migrations):
+3. Edit `.env` with the database connection URL — **`.env` is private and
+   never committed.**
+4. Apply the schema (idempotent, safe to re-run; includes the incremental
+   column migrations):
    ```sh
    psql "$DATABASE_URL" -f schema.sql
    ```
-4. Start the API (binds to `127.0.0.1:8000`):
+5. Start the API (binds to `127.0.0.1:8000`):
    ```sh
    python main.py
    ```
-5. Expose it as private HTTPS for the tailnet:
+6. Expose private HTTPS for the tailnet — the endpoint shown by
+   `tailscale serve status` is what clients use:
    ```sh
    tailscale serve --bg http://127.0.0.1:8000
    tailscale serve status
    ```
-   The endpoint shown by `tailscale serve status` is what clients use.
-6. Sign client devices (e.g. iPhone) into the same tailnet. The app is
-   preconfigured with the endpoint and connects automatically — no URL or token
-   entry in the UI.
+7. Sign client devices (e.g. iPhone) into the same tailnet; the app is
+   preconfigured with the endpoint and connects automatically — no URL or
+   token entry in the UI.
 
 ## Security rules (non-negotiable)
 
