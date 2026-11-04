@@ -15,6 +15,10 @@ This repository is the **project documentation** for the Mentor Me program.
 This repository intentionally contains **documentation only** — app source code is
 maintained in a private repository.
 
+Also here: [My dev setup — from Mac Studio to Mentor Me](my-dev-setup.md), the
+story of the machine, the toolchain experiments, and the local AI stack the
+project is built with.
+
 ## Documentation style
 
 Each product is documented in standard-operating-procedure (SOP) form: purpose,
